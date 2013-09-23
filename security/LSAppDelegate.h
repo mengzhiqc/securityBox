@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKRevealController.h"
+
 
 @interface LSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong, readwrite) PKRevealController *revealController;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong, readwrite) UINavigationController *mainNavigationController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

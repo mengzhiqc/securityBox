@@ -7,17 +7,30 @@
 //
 
 #import "LSAppDelegate.h"
+#import "LSMainViewController.h"
+#import "LSLeftMenuViewController.h"
 
 @implementation LSAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize mainNavigationController = _mainNavigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    LSMainViewController *mainViewController = [[LSMainViewController alloc]initWithNibName:@"LSMainViewController" bundle:nil];
+    self.mainNavigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
+    LSLeftMenuViewController *leftMenuController = [[LSLeftMenuViewController alloc]initWithNibName:@"LSLeftMenuViewController" bundle:nil];
+    NSDictionary *options = @{
+                              PKRevealControllerAllowsOverdrawKey:[NSNumber numberWithBool:YES],
+                              PKRevealControllerDisablesFrontViewInteractionKey:[NSNumber numberWithBool:YES]
+                              };
+    PKRevealController *revealController = [PKRevealController revealControllerWithFrontViewController:self.mainNavigationController leftViewController:leftMenuController options:options];
+    self.window.rootViewController = revealController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -136,6 +149,15 @@
     }    
     
     return _persistentStoreCoordinator;
+}
+
+#pragma mark - application navigation
+- (UINavigationController *)mainNavigationController
+{
+    if (nil != _mainNavigationController) {
+        return _mainNavigationController;
+    }
+    return nil;
 }
 
 #pragma mark - Application's Documents directory
