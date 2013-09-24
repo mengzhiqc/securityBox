@@ -11,6 +11,7 @@
 #import "LSMainViewController.h"
 #import "LSAddItemViewController.h"
 #import "LSAppDelegate.h"
+#import "LSImageUtil.h"
 
 @interface LSLeftMenuViewController ()
 @property(nonatomic,strong) NSArray *dataSource;
@@ -25,6 +26,7 @@
     if (self) {
         // Custom initialization
         self.title = @"Left Menu";
+        
     }
     return self;
 }
@@ -33,14 +35,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.revealController setMinimumWidth:120.0f maximumWidth:240.0f forViewController:self];
+    [self.revealController setMinimumWidth:200.0f maximumWidth:240.0f forViewController:self];
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    UIView *tableViewBackgroundView = [[UIView alloc]initWithFrame:self.view.bounds];
+    [tableViewBackgroundView setBackgroundColor: [UIColor colorWithPatternImage:[LSImageUtil scaleImage:[UIImage imageNamed:@"Security-leftview-background.png"] toScale:0.5]]];
+    [self.tableView setBackgroundView:tableViewBackgroundView];
     self.dataSource = @[
-                   @{@"name":@"列表",@"route":@"LSMainViewController"},
-                   @{@"name":@"添加项目",@"route":@"LSAddItemViewController"}
+                   @{@"name":@"添加项目",@"route":@"LSAddItemViewController",@"detail":@"增加一个新的项目",@"image":@"Security-LeftView-Compose-ICON.png"},
+                   @{@"name":@"列表",@"route":@"LSMainViewController",@"detail":@"获取你的密码列表",@"image":@"Security-LeftView-List-ICON.png"},
                    ];
 }
 
@@ -63,10 +68,25 @@
     static NSString *identifier = @"cellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     [cell.textLabel setText:[[self.dataSource objectAtIndex:index] objectForKey:@"name"]];
+    [cell.textLabel setAlpha:0.8];
+    [cell.textLabel setTextColor:[UIColor greenColor]];
+    
+    [cell.detailTextLabel setText:[[self.dataSource objectAtIndex:index] objectForKey:@"detail"]];
+    [cell.detailTextLabel setAlpha:0.8];
+    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
+    
+    cell.imageView.image = [LSImageUtil scaleImage:[UIImage imageNamed:[[self.dataSource objectAtIndex:index] objectForKey:@"image"]] toScale:0.35];
+
+    
+    UIView *cellBackGroundView = [[UIView alloc]initWithFrame:cell.bounds];
+    cellBackGroundView.alpha = 0.6;
+    [cellBackGroundView setBackgroundColor:[UIColor colorWithRed:0.5f green:0.5f blue:(1.0f*(index+1))/(self.dataSource.count) alpha:0.4]];
+    [cell setBackgroundColor:[UIColor clearColor]];
+    cell.selectedBackgroundView = cellBackGroundView;
     return cell;
 }
 
@@ -89,6 +109,16 @@
     }
     
     [self.revealController showViewController:self.revealController.frontViewController animated:YES completion:nil];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 39;
 }
 
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LSAddItemViewController : UIViewController
+@interface LSAddItemViewController : UIViewController<UITextFieldDelegate>
 
 @end

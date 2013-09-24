@@ -7,7 +7,7 @@
 //
 
 #import "LSAppDelegate.h"
-#import "LSMainViewController.h"
+#import "LSAddItemViewController.h"
 #import "LSLeftMenuViewController.h"
 
 @implementation LSAppDelegate
@@ -22,7 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    LSMainViewController *mainViewController = [[LSMainViewController alloc]initWithNibName:@"LSMainViewController" bundle:nil];
+    LSAddItemViewController *mainViewController = [[LSAddItemViewController alloc]initWithNibName:@"LSAddItemViewController" bundle:nil];
     self.mainNavigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
     LSLeftMenuViewController *leftMenuController = [[LSLeftMenuViewController alloc]initWithNibName:@"LSLeftMenuViewController" bundle:nil];
     NSDictionary *options = @{

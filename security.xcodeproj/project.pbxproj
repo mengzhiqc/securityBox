@@ -35,6 +35,12 @@
 		8A9D716617EFF09A0019647F /* reveal_menu_icon_portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A9D716217EFF09A0019647F /* reveal_menu_icon_portrait@2x.png */; };
 		8A9D716A17F025F40019647F /* LSAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D716817F025F40019647F /* LSAddItemViewController.m */; };
 		8A9D716B17F025F40019647F /* LSAddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A9D716917F025F40019647F /* LSAddItemViewController.xib */; };
+		8A9D717517F063B90019647F /* LSPWDEntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D717417F063B90019647F /* LSPWDEntityModel.m */; };
+		8A9D717B17F07A0E0019647F /* LSPWDEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D717A17F07A0E0019647F /* LSPWDEntity.m */; };
+		8AF1175917F13C5E009AFB61 /* LSImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1175817F13C5E009AFB61 /* LSImageUtil.m */; };
+		8AF1175F17F148FC009AFB61 /* Security-leftview-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF1175E17F148FC009AFB61 /* Security-leftview-background.png */; };
+		8AF1176117F1564F009AFB61 /* Security-LeftView-Compose-ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF1176017F1564F009AFB61 /* Security-LeftView-Compose-ICON.png */; };
+		8AF1176717F179E8009AFB61 /* Security-LeftView-List-ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF1176617F179E8009AFB61 /* Security-LeftView-List-ICON.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,15 @@
 		8A9D716717F025F40019647F /* LSAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSAddItemViewController.h; sourceTree = "<group>"; };
 		8A9D716817F025F40019647F /* LSAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSAddItemViewController.m; sourceTree = "<group>"; };
 		8A9D716917F025F40019647F /* LSAddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSAddItemViewController.xib; sourceTree = "<group>"; };
+		8A9D717317F063B90019647F /* LSPWDEntityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPWDEntityModel.h; sourceTree = "<group>"; };
+		8A9D717417F063B90019647F /* LSPWDEntityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPWDEntityModel.m; sourceTree = "<group>"; };
+		8A9D717917F07A0E0019647F /* LSPWDEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPWDEntity.h; sourceTree = "<group>"; };
+		8A9D717A17F07A0E0019647F /* LSPWDEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPWDEntity.m; sourceTree = "<group>"; };
+		8AF1175717F13C5E009AFB61 /* LSImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageUtil.h; sourceTree = "<group>"; };
+		8AF1175817F13C5E009AFB61 /* LSImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageUtil.m; sourceTree = "<group>"; };
+		8AF1175E17F148FC009AFB61 /* Security-leftview-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Security-leftview-background.png"; sourceTree = "<group>"; };
+		8AF1176017F1564F009AFB61 /* Security-LeftView-Compose-ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Security-LeftView-Compose-ICON.png"; sourceTree = "<group>"; };
+		8AF1176617F179E8009AFB61 /* Security-LeftView-List-ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Security-LeftView-List-ICON.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +165,8 @@
 				8A7FAFE717EFACFE00B8F772 /* LSAppDelegate.h */,
 				8A7FAFE817EFACFE00B8F772 /* LSAppDelegate.m */,
 				8A9D714F17EFE26D0019647F /* controller */,
+				8A9D716C17F05B340019647F /* model */,
+				8AF1175617F13C12009AFB61 /* util */,
 				8A7FAFED17EFACFE00B8F772 /* Images.xcassets */,
 				8A7FAFEA17EFACFE00B8F772 /* security.xcdatamodeld */,
 				8A7FAFDF17EFACFE00B8F772 /* Supporting Files */,
@@ -160,6 +177,9 @@
 		8A7FAFDF17EFACFE00B8F772 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8AF1176617F179E8009AFB61 /* Security-LeftView-List-ICON.png */,
+				8AF1176017F1564F009AFB61 /* Security-LeftView-Compose-ICON.png */,
+				8AF1175E17F148FC009AFB61 /* Security-leftview-background.png */,
 				8A9D715F17EFF09A0019647F /* reveal_menu_icon_landscape.png */,
 				8A9D716017EFF09A0019647F /* reveal_menu_icon_landscape@2x.png */,
 				8A9D716117EFF09A0019647F /* reveal_menu_icon_portrait.png */,
@@ -218,6 +238,27 @@
 				8A9D715617EFE2E20019647F /* UIViewController+PKRevealController.m */,
 			);
 			name = component;
+			sourceTree = "<group>";
+		};
+		8A9D716C17F05B340019647F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8A9D717317F063B90019647F /* LSPWDEntityModel.h */,
+				8A9D717417F063B90019647F /* LSPWDEntityModel.m */,
+				8A9D717917F07A0E0019647F /* LSPWDEntity.h */,
+				8A9D717A17F07A0E0019647F /* LSPWDEntity.m */,
+			);
+			name = model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		8AF1175617F13C12009AFB61 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				8AF1175717F13C5E009AFB61 /* LSImageUtil.h */,
+				8AF1175817F13C5E009AFB61 /* LSImageUtil.m */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,12 +340,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF1176717F179E8009AFB61 /* Security-LeftView-List-ICON.png in Resources */,
 				8A9D716617EFF09A0019647F /* reveal_menu_icon_portrait@2x.png in Resources */,
 				8A7FAFE317EFACFE00B8F772 /* InfoPlist.strings in Resources */,
+				8AF1176117F1564F009AFB61 /* Security-LeftView-Compose-ICON.png in Resources */,
 				8A9D716417EFF09A0019647F /* reveal_menu_icon_landscape@2x.png in Resources */,
 				8A9D716317EFF09A0019647F /* reveal_menu_icon_landscape.png in Resources */,
 				8A9D716517EFF09A0019647F /* reveal_menu_icon_portrait.png in Resources */,
 				8A7FB00F17EFB1C300B8F772 /* LSMainViewController.xib in Resources */,
+				8AF1175F17F148FC009AFB61 /* Security-leftview-background.png in Resources */,
 				8A9D716B17F025F40019647F /* LSAddItemViewController.xib in Resources */,
 				8A7FAFEE17EFACFE00B8F772 /* Images.xcassets in Resources */,
 				8A9D715E17EFE4160019647F /* LSLeftMenuViewController.xib in Resources */,
@@ -330,6 +374,9 @@
 				8A7FAFEC17EFACFE00B8F772 /* security.xcdatamodeld in Sources */,
 				8A9D715917EFE2E20019647F /* UIViewController+PKRevealController.m in Sources */,
 				8A9D715D17EFE4160019647F /* LSLeftMenuViewController.m in Sources */,
+				8AF1175917F13C5E009AFB61 /* LSImageUtil.m in Sources */,
+				8A9D717517F063B90019647F /* LSPWDEntityModel.m in Sources */,
+				8A9D717B17F07A0E0019647F /* LSPWDEntity.m in Sources */,
 				8A7FAFE517EFACFE00B8F772 /* main.m in Sources */,
 				8A7FAFE917EFACFE00B8F772 /* LSAppDelegate.m in Sources */,
 				8A9D715817EFE2E20019647F /* PKRevealControllerContainerView.m in Sources */,

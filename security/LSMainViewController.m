@@ -8,6 +8,8 @@
 
 #import "LSMainViewController.h"
 #import "PKRevealController.h"
+#import "LSPWDEntityModel.h"
+#import "LSPWDEntity.h"
 
 @interface LSMainViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
@@ -72,8 +74,9 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     NSInteger row = [indexPath row];
-    [cell.textLabel setText:[[self.dataSource objectAtIndex:row] objectForKey:@"name"]];
-    [cell.detailTextLabel setText:[[self.dataSource objectAtIndex:row] objectForKey:@"passwd"]];
+
+    [cell.textLabel setText:[[self.dataSource objectAtIndex:row] valueForKey:@"name"]];
+    [cell.detailTextLabel setText:[[self.dataSource objectAtIndex:row] valueForKey:@"passwd"]];
 
     return cell;
 }
@@ -94,11 +97,17 @@
                         @{@"name": @"淘宝支付宝",@"passwd":@"23456sx"},
                         @{@"name": @"建设银行",@"passwd":@"23456sx"},
                         @{@"name": @"笔记本密码",@"passwd":@"23456sx"},
-
                         ];
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    
+    self.dataSource = [LSPWDEntityModel passwdList];
+
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    UIView *tableViewBackground = [[UIView alloc]initWithFrame:self.view.bounds];
+    [tableViewBackground setBackgroundColor:[UIColor whiteColor]];
+    [self.tableView setBackgroundView:tableViewBackground];
+    [self.tableView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:self.tableView];
 }
 
