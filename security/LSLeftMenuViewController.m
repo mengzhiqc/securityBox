@@ -10,6 +10,8 @@
 #import "PKRevealController.h"
 #import "LSMainViewController.h"
 #import "LSAddItemViewController.h"
+#import "LSAboutAppViewController.h"
+#import "TestViewController.h"
 #import "LSAppDelegate.h"
 #import "LSImageUtil.h"
 
@@ -35,7 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.revealController setMinimumWidth:200.0f maximumWidth:240.0f forViewController:self];
+    [self.revealController setMinimumWidth:170.0f maximumWidth:240.0f forViewController:self];
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
@@ -44,8 +46,10 @@
     [tableViewBackgroundView setBackgroundColor: [UIColor colorWithPatternImage:[LSImageUtil scaleImage:[UIImage imageNamed:@"Security-leftview-background.png"] toScale:0.5]]];
     [self.tableView setBackgroundView:tableViewBackgroundView];
     self.dataSource = @[
-                   @{@"name":@"添加项目",@"route":@"LSAddItemViewController",@"detail":@"增加一个新的项目",@"image":@"Security-LeftView-Compose-ICON.png"},
-                   @{@"name":@"列表",@"route":@"LSMainViewController",@"detail":@"获取你的密码列表",@"image":@"Security-LeftView-List-ICON.png"},
+                   @{@"name":@"添加项目",@"route":@"LSAddItemViewController",@"detail":@"增加一个新的项目",@"image":@"security-leftview-compose-icon.png"},
+                   @{@"name":@"列表",@"route":@"LSMainViewController",@"detail":@"获取你的密码列表",@"image":@"security-leftview-list-icon.png"},
+                   @{@"name":@"关于我们",@"route":@"LSAboutAppViewController",@"detail":@"我们的设计理念",@"image":@"security-leftview-about-icon.png"},
+                   @{@"name":@"设置手势",@"route":@"settingPattern",@"detail":@"设置手势",@"image":@""},
                    ];
 }
 
@@ -59,7 +63,7 @@
 #pragma mark - tableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,12 +82,13 @@
     [cell.detailTextLabel setText:[[self.dataSource objectAtIndex:index] objectForKey:@"detail"]];
     [cell.detailTextLabel setAlpha:0.8];
     [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
+    if ([[self.dataSource objectAtIndex:index] objectForKey:@"image"]) {
+        cell.imageView.image = [LSImageUtil scaleImage:[UIImage imageNamed:[[self.dataSource objectAtIndex:index] objectForKey:@"image"]] toScale:0.2];
+    }
     
-    cell.imageView.image = [LSImageUtil scaleImage:[UIImage imageNamed:[[self.dataSource objectAtIndex:index] objectForKey:@"image"]] toScale:0.35];
-
     
     UIView *cellBackGroundView = [[UIView alloc]initWithFrame:cell.bounds];
-    cellBackGroundView.alpha = 0.6;
+    cellBackGroundView.alpha = 0.4;
     [cellBackGroundView setBackgroundColor:[UIColor colorWithRed:0.5f green:0.5f blue:(1.0f*(index+1))/(self.dataSource.count) alpha:0.4]];
     [cell setBackgroundColor:[UIColor clearColor]];
     cell.selectedBackgroundView = cellBackGroundView;
@@ -103,9 +108,13 @@
         
     } else if ([route isEqualToString:@"LSAddItemViewController"]) {
         LSAddItemViewController *navigationRootController = [[LSAddItemViewController alloc]initWithNibName:@"LSAddItemViewController" bundle:Nil];
-        mainNavigation = [[UINavigationController alloc]initWithRootViewController:navigationRootController];
         [self.revealController setFrontViewController:navigationRootController];
 
+    } else if([route isEqualToString:@"LSAboutAppViewController"]) {
+        LSAboutAppViewController *navigationRootController = [[LSAboutAppViewController alloc]initWithNibName:@"LSAboutAppViewController" bundle:Nil];
+        [self.revealController setFrontViewController:navigationRootController];
+    } else if ([route isEqualToString:@"settingPattern"]) {
+        [self applicationPatternSetting];
     }
     
     [self.revealController showViewController:self.revealController.frontViewController animated:YES completion:nil];
@@ -132,6 +141,15 @@
                                                      animated:YES
                                                    completion:NULL];
     }
+}
+
+- (void)applicationPatternSetting
+{
+    TestViewController *lockViewController = [[TestViewController alloc]init];
+    lockViewController.infoLabelStatus = InfoStatusFirstTimeSetting;
+    [self.revealController presentViewController:lockViewController animated:YES completion:^{
+    
+    }];
 }
 
 @end

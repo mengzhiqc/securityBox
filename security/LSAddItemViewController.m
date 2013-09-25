@@ -12,6 +12,7 @@
 
 @interface LSAddItemViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeTitle;
 @property (strong, nonatomic) UIView *inputAreaOverLay;
 - (IBAction)addButtonClicked:(id)sender;
 
@@ -31,8 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    //[self addDemo];
     [self setup];
     
 }
@@ -43,30 +42,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addDemo
-{
-    NSArray *dataSource = @[
-      @{@"name":@"Apple iTunes",@"passwd":@"123456",@"comment":@"xxx",@"timestamp":@(12232222)},
-      @{@"name": @"招商银行",@"passwd":@"23456sx",@"comment":@"xxx",@"timestamp":@(12232222)},
-      @{@"name": @"淘宝支付宝",@"passwd":@"23456sx",@"comment":@"xxx",@"timestamp":@(12232222)},
-      @{@"name": @"建设银行",@"passwd":@"23456sx",@"comment":@"xxx",@"timestamp":@(12232222)},
-      @{@"name": @"笔记本密码",@"passwd":@"23456sx",@"comment":@"xxx",@"timestamp":@(12232222)},
-      ];
-    for (NSDictionary *item in dataSource) {
-        LSPWDEntity *passwd = [[LSPWDEntity alloc]init];
-        passwd.name = [item objectForKey:@"name"];
-        passwd.comment = [item objectForKey:@"comment"];
-        passwd.passwd = [item objectForKey:@"passwd"];
-        passwd.timestamp = [item objectForKey:@"timestamp"];
-        [LSPWDEntityModel insertPwdInfo:passwd];
-    }
-    
-}
 
 #pragma mark - buttonEvent
 - (IBAction)addButtonClicked:(id)sender {
     CGRect frame = self.addButton.frame;
-    frame.origin.y = frame.origin.y-100;
     [UIView animateWithDuration:0.35 animations:^{
         [self.addButton setFrame:frame];
         [self.addButton setAlpha:0];
@@ -78,16 +57,15 @@
 - (void)showInputLayout:(CGRect)frame
 {
     //frame.origin.y = 100;
-    frame.origin.x -= 35;
-    frame.size.width += 60;
-    frame.size.height += 200;
+    frame.size.height += 120;
     [self.inputAreaOverLay setAlpha:1.0];
     [self.inputAreaOverLay setFrame:frame];
 }
 
 - (void)setup
 {
-    self.inputAreaOverLay = [[UIView alloc]initWithFrame:CGRectMake(-1, 250, -1, 1)];
+    self.inputAreaOverLay = [[UIView alloc]initWithFrame:CGRectMake(35, 194, 250, 0)];
+    //[self.inputAreaOverLay setBackgroundColor:[UIColor colorWithRed:58.0f/255 green:144.0f/255 blue:249.0f/255 alpha:0.75]];
     [self.inputAreaOverLay setClipsToBounds:YES];
     
     UITextField *nameTextField = [self createCustomUiTextField:0 placeHolder:@"请输入名称" selector:nil tag:1001];
@@ -99,7 +77,7 @@
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [submitButton setFrame:CGRectMake(0, 2*55+20, 250, 50)];
-    [submitButton setBackgroundColor:[UIColor colorWithRed:58.0f/255 green:144.0f/255 blue:249.0f/255 alpha:0.75]];
+    [submitButton setBackgroundColor:[UIColor colorWithRed:58.0f/255 green:144.0f/255 blue:249.0f/255 alpha:1.0f]];
     [submitButton setTag:1003];
     [submitButton addTarget:self action:@selector(submitButtonClicked) forControlEvents:UIControlEventTouchDown];
     [self.inputAreaOverLay addSubview:submitButton];
@@ -112,15 +90,18 @@
 {
     UITextField *nameInputView = [[UITextField alloc]initWithFrame:CGRectMake(0, index*55, 250, 50)];
     [nameInputView setTextColor:[UIColor whiteColor]];
-    [nameInputView setBackgroundColor:[UIColor colorWithRed:58.0f/255 green:144.0f/255 blue:249.0f/255 alpha:0.75]];
+    [nameInputView setBackgroundColor:[UIColor colorWithRed:58.0f/255 green:144.0f/255 blue:249.0f/255 alpha:1]];
+    //[nameInputView setBackgroundColor:[UIColor clearColor]];
     [nameInputView setPlaceholder:placeHolder];
     [nameInputView setHighlighted:YES];
     [nameInputView setAdjustsFontSizeToFitWidth:YES];
     [nameInputView setFont:[UIFont systemFontOfSize:18]];
-    
+    [nameInputView setBorderStyle:UITextBorderStyleRoundedRect];
+    [nameInputView setClearButtonMode:UITextFieldViewModeWhileEditing];
     if (tag == 1001) {
         [nameInputView setReturnKeyType:UIReturnKeyNext];
     } else {
+        [nameInputView setKeyboardType:UIKeyboardTypeASCIICapable];
         [nameInputView setReturnKeyType:UIReturnKeyGo];
     }
     
@@ -132,9 +113,6 @@
     nameInputView.delegate = self;
     
     UIView *leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
-//    UILabel *leftViewLabel = [[UILabel alloc]initWithFrame:leftView.bounds];
-//    [leftViewLabel setText:@"用户名"];
-//    [leftView addSubview:leftViewLabel];
     [nameInputView setLeftView:leftView];
     [nameInputView setLeftViewMode:UITextFieldViewModeAlways];
     return nameInputView;
@@ -166,11 +144,10 @@
     
     [UIView animateWithDuration:0.75 animations:^{
         CGRect frame = self.addButton.frame;
-        [self.inputAreaOverLay setFrame:CGRectMake(-100, 0, 10, 10)];
+        [self.inputAreaOverLay setFrame:CGRectMake(35, 194, 250, 0)];
         [self.inputAreaOverLay setAlpha:0];
-        frame.origin.y += 100;
         [self.addButton setFrame:frame];
-        self.addButton.alpha = 10;
+        self.addButton.alpha = 1;
     }];
     }
 }
@@ -192,6 +169,34 @@
         }
     }
     return NO;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField.tag == 1002||textField.tag == 1001) {
+        CGRect frame = self.inputAreaOverLay.frame;
+        frame.origin.y -= 100;
+        [self.inputAreaOverLay setFrame:frame];
+        CGRect labelFrame = self.welcomeTitle.frame;
+        labelFrame.origin.y -= 100;
+        [self.welcomeTitle setFrame:labelFrame];
+        
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField.tag == 1002||textField.tag == 1001) {
+        [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.inputAreaOverLay.frame;
+        frame.origin.y += 100;
+        [self.inputAreaOverLay setFrame:frame];
+            
+        CGRect labelFrame = self.welcomeTitle.frame;
+        labelFrame.origin.y += 100;
+        [self.welcomeTitle setFrame:labelFrame];
+        }];
+    }
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

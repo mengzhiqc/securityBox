@@ -9,6 +9,7 @@
 #import "LSAppDelegate.h"
 #import "LSAddItemViewController.h"
 #import "LSLeftMenuViewController.h"
+#import "TestViewController.h"
 
 @implementation LSAppDelegate
 
@@ -56,6 +57,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    BOOL isPatternSet = ([[NSUserDefaults standardUserDefaults] valueForKey:kCurrentPattern])?YES:NO;
+    if (self.window.rootViewController.presentedViewController == nil && isPatternSet) {
+        TestViewController *lockViewController = [[TestViewController alloc]init];
+        lockViewController.infoLabelStatus = InfoStatusNormal;
+        [self.window.rootViewController presentViewController:lockViewController animated:YES completion:^{
+        }];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

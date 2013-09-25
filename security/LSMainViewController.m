@@ -8,8 +8,10 @@
 
 #import "LSMainViewController.h"
 #import "PKRevealController.h"
+#import "LSDetailViewController.h"
 #import "LSPWDEntityModel.h"
 #import "LSPWDEntity.h"
+#import "LSImageUtil.h"
 
 @interface LSMainViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
@@ -60,7 +62,7 @@
 }
 
 #pragma --
-#pragma mark -
+#pragma mark - tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.dataSource count];
@@ -76,9 +78,22 @@
     NSInteger row = [indexPath row];
 
     [cell.textLabel setText:[[self.dataSource objectAtIndex:row] valueForKey:@"name"]];
+    [cell.textLabel setTextColor:[UIColor colorWithRed:1.0f*(row)/(self.dataSource.count+5) green:0.3f blue:0.5f alpha:1]];
     [cell.detailTextLabel setText:[[self.dataSource objectAtIndex:row] valueForKey:@"passwd"]];
+    [cell setBackgroundColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5]];
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LSDetailViewController *detailController = [[LSDetailViewController alloc]initWithNibName:@"LSDetailViewController" bundle:Nil];
+    [self.navigationController pushViewController:detailController animated:YES];
 }
 
 #pragma mark - setup
@@ -91,24 +106,20 @@
 
 - (void)prepareTableView
 {
-    self.dataSource = @[
-                        @{@"name":@"Apple iTunes",@"passwd":@"123456"},
-                        @{@"name": @"招商银行",@"passwd":@"23456sx"},
-                        @{@"name": @"淘宝支付宝",@"passwd":@"23456sx"},
-                        @{@"name": @"建设银行",@"passwd":@"23456sx"},
-                        @{@"name": @"笔记本密码",@"passwd":@"23456sx"},
-                        ];
-    
     self.dataSource = [LSPWDEntityModel passwdList];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    [self.view addSubview:self.tableView];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    UIView *tableViewBackgroundView = [[UIView alloc]initWithFrame:self.view.bounds];
+    [tableViewBackgroundView setBackgroundColor: [UIColor colorWithPatternImage:[LSImageUtil scaleImage:[UIImage imageNamed:@"security-mainview-background.png"] toScale:0.5]]];
+    [self.tableView setBackgroundView:tableViewBackgroundView];
 
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    UIView *tableViewBackground = [[UIView alloc]initWithFrame:self.view.bounds];
-    [tableViewBackground setBackgroundColor:[UIColor whiteColor]];
-    [self.tableView setBackgroundView:tableViewBackground];
-    [self.tableView setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:self.tableView];
+    
 }
 
 @end
