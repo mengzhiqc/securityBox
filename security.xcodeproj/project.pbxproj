@@ -52,7 +52,13 @@
 		8AF1179917F277C5009AFB61 /* SPLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1179317F277C5009AFB61 /* SPLine.m */; };
 		8AF1179A17F277C5009AFB61 /* SPLockOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1179517F277C5009AFB61 /* SPLockOverlay.m */; };
 		8AF1179B17F277C5009AFB61 /* SPLockScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1179717F277C5009AFB61 /* SPLockScreen.m */; };
-		8AF1179E17F2782A009AFB61 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1179D17F2782A009AFB61 /* TestViewController.m */; };
+		8AF1179E17F2782A009AFB61 /* LSSreenLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1179D17F2782A009AFB61 /* LSSreenLockViewController.m */; };
+		8AF117A317F290C9009AFB61 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF117A017F290C9009AFB61 /* libMobClickLibrary.a */; };
+		8AF117A617F29156009AFB61 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF117A517F29156009AFB61 /* libz.dylib */; };
+		8AF117AA17F293E1009AFB61 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF117A717F293E1009AFB61 /* libUMFeedback.a */; };
+		8AF117AB17F293E1009AFB61 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8AF117A817F293E1009AFB61 /* umFeedback.bundle */; };
+		8AF117AD17F2FFDC009AFB61 /* security-addview-addbutton-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF117AC17F2FFDC009AFB61 /* security-addview-addbutton-background.png */; };
+		8AF117AF17F30984009AFB61 /* swap-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF117AE17F30984009AFB61 /* swap-right.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,8 +135,17 @@
 		8AF1179517F277C5009AFB61 /* SPLockOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLockOverlay.m; sourceTree = "<group>"; };
 		8AF1179617F277C5009AFB61 /* SPLockScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLockScreen.h; sourceTree = "<group>"; };
 		8AF1179717F277C5009AFB61 /* SPLockScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLockScreen.m; sourceTree = "<group>"; };
-		8AF1179C17F2782A009AFB61 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		8AF1179D17F2782A009AFB61 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		8AF1179C17F2782A009AFB61 /* LSSreenLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSreenLockViewController.h; sourceTree = "<group>"; };
+		8AF1179D17F2782A009AFB61 /* LSSreenLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSreenLockViewController.m; sourceTree = "<group>"; };
+		8AF117A017F290C9009AFB61 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		8AF117A117F290C9009AFB61 /* libMobClickLibrary_armv6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary_armv6.a; sourceTree = "<group>"; };
+		8AF117A217F290C9009AFB61 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		8AF117A517F29156009AFB61 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8AF117A717F293E1009AFB61 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUMFeedback.a; path = ../../../../../Pictures/design/UMFeedback_iOS_1.4/libUMFeedback.a; sourceTree = "<group>"; };
+		8AF117A817F293E1009AFB61 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = umFeedback.bundle; path = ../../../../../Pictures/design/UMFeedback_iOS_1.4/umFeedback.bundle; sourceTree = "<group>"; };
+		8AF117A917F293E1009AFB61 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMFeedback.h; path = ../../../../../Pictures/design/UMFeedback_iOS_1.4/UMFeedback.h; sourceTree = "<group>"; };
+		8AF117AC17F2FFDC009AFB61 /* security-addview-addbutton-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "security-addview-addbutton-background.png"; path = "../../../../Pictures/SBox密码工具箱/security-addview-addbutton-background.png"; sourceTree = "<group>"; };
+		8AF117AE17F30984009AFB61 /* swap-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swap-right.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,10 +153,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF117A617F29156009AFB61 /* libz.dylib in Frameworks */,
 				8A7FAFD917EFACFE00B8F772 /* CoreGraphics.framework in Frameworks */,
 				8A7FAFDD17EFACFE00B8F772 /* CoreData.framework in Frameworks */,
+				8AF117AA17F293E1009AFB61 /* libUMFeedback.a in Frameworks */,
 				8A7FAFDB17EFACFE00B8F772 /* UIKit.framework in Frameworks */,
 				8A7FAFD717EFACFE00B8F772 /* Foundation.framework in Frameworks */,
+				8AF117A317F290C9009AFB61 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +199,7 @@
 		8A7FAFD517EFACFE00B8F772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AF117A517F29156009AFB61 /* libz.dylib */,
 				8A7FAFD617EFACFE00B8F772 /* Foundation.framework */,
 				8A7FAFD817EFACFE00B8F772 /* CoreGraphics.framework */,
 				8A7FAFDA17EFACFE00B8F772 /* UIKit.framework */,
@@ -208,6 +227,8 @@
 		8A7FAFDF17EFACFE00B8F772 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8AF117AE17F30984009AFB61 /* swap-right.png */,
+				8AF117AC17F2FFDC009AFB61 /* security-addview-addbutton-background.png */,
 				8AF1178C17F1F352009AFB61 /* aboutUs.html */,
 				8AF1178517F1DBC0009AFB61 /* security-leftview-about-icon.png */,
 				8AF1177C17F1D50F009AFB61 /* security-mainview-background.png */,
@@ -247,8 +268,8 @@
 		8A9D714F17EFE26D0019647F /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				8AF1179C17F2782A009AFB61 /* TestViewController.h */,
-				8AF1179D17F2782A009AFB61 /* TestViewController.m */,
+				8AF1179C17F2782A009AFB61 /* LSSreenLockViewController.h */,
+				8AF1179D17F2782A009AFB61 /* LSSreenLockViewController.m */,
 				8A7FB00B17EFB1C300B8F772 /* LSMainViewController.h */,
 				8A7FB00C17EFB1C300B8F772 /* LSMainViewController.m */,
 				8A7FB00D17EFB1C300B8F772 /* LSMainViewController.xib */,
@@ -261,10 +282,10 @@
 				8AF1177E17F1D9F0009AFB61 /* LSAboutAppViewController.h */,
 				8AF1177F17F1D9F0009AFB61 /* LSAboutAppViewController.m */,
 				8AF1178017F1D9F0009AFB61 /* LSAboutAppViewController.xib */,
-				8A9D715017EFE2980019647F /* component */,
 				8AF1178717F1EB18009AFB61 /* LSDetailViewController.h */,
 				8AF1178817F1EB18009AFB61 /* LSDetailViewController.m */,
 				8AF1178917F1EB18009AFB61 /* LSDetailViewController.xib */,
+				8A9D715017EFE2980019647F /* component */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -272,6 +293,7 @@
 		8A9D715017EFE2980019647F /* component */ = {
 			isa = PBXGroup;
 			children = (
+				8AF1179F17F290C9009AFB61 /* UMAnalytics_Sdk_2.2.1.OpenUDID */,
 				8AF1178F17F2779B009AFB61 /* SPLockScreen */,
 				8A9D715117EFE2E20019647F /* PKRevealController.h */,
 				8A9D715217EFE2E20019647F /* PKRevealController.m */,
@@ -317,6 +339,19 @@
 				8AF1179717F277C5009AFB61 /* SPLockScreen.m */,
 			);
 			name = SPLockScreen;
+			sourceTree = "<group>";
+		};
+		8AF1179F17F290C9009AFB61 /* UMAnalytics_Sdk_2.2.1.OpenUDID */ = {
+			isa = PBXGroup;
+			children = (
+				8AF117A917F293E1009AFB61 /* UMFeedback.h */,
+				8AF117A717F293E1009AFB61 /* libUMFeedback.a */,
+				8AF117A817F293E1009AFB61 /* umFeedback.bundle */,
+				8AF117A017F290C9009AFB61 /* libMobClickLibrary.a */,
+				8AF117A117F290C9009AFB61 /* libMobClickLibrary_armv6.a */,
+				8AF117A217F290C9009AFB61 /* MobClick.h */,
+			);
+			path = UMAnalytics_Sdk_2.2.1.OpenUDID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,10 +444,13 @@
 				8A9D716517EFF09A0019647F /* reveal_menu_icon_portrait.png in Resources */,
 				8A7FB00F17EFB1C300B8F772 /* LSMainViewController.xib in Resources */,
 				8AF1175F17F148FC009AFB61 /* Security-leftview-background.png in Resources */,
+				8AF117AF17F30984009AFB61 /* swap-right.png in Resources */,
 				8A9D716B17F025F40019647F /* LSAddItemViewController.xib in Resources */,
 				8AF1177917F1AD37009AFB61 /* security-leftview-compose-icon.png in Resources */,
 				8AF1178B17F1EB18009AFB61 /* LSDetailViewController.xib in Resources */,
+				8AF117AB17F293E1009AFB61 /* umFeedback.bundle in Resources */,
 				8A7FAFEE17EFACFE00B8F772 /* Images.xcassets in Resources */,
+				8AF117AD17F2FFDC009AFB61 /* security-addview-addbutton-background.png in Resources */,
 				8A9D715E17EFE4160019647F /* LSLeftMenuViewController.xib in Resources */,
 				8AF1178217F1D9F0009AFB61 /* LSAboutAppViewController.xib in Resources */,
 			);
@@ -444,7 +482,7 @@
 				8A9D717B17F07A0E0019647F /* LSPWDEntity.m in Sources */,
 				8A7FAFE517EFACFE00B8F772 /* main.m in Sources */,
 				8AF1179817F277C5009AFB61 /* NormalCircle.m in Sources */,
-				8AF1179E17F2782A009AFB61 /* TestViewController.m in Sources */,
+				8AF1179E17F2782A009AFB61 /* LSSreenLockViewController.m in Sources */,
 				8A7FAFE917EFACFE00B8F772 /* LSAppDelegate.m in Sources */,
 				8A9D715817EFE2E20019647F /* PKRevealControllerContainerView.m in Sources */,
 				8A9D715717EFE2E20019647F /* PKRevealController.m in Sources */,
@@ -574,7 +612,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "security/security-Prefix.pch";
 				INFOPLIST_FILE = "security/security-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kavin/WorkSpace/iOSDeveloper/security/security/UMAnalytics_Sdk_2.2.1.OpenUDID,
+					/Users/kavin/Pictures/design/UMFeedback_iOS_1.4,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -584,11 +628,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "security/security-Prefix.pch";
 				INFOPLIST_FILE = "security/security-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kavin/WorkSpace/iOSDeveloper/security/security/UMAnalytics_Sdk_2.2.1.OpenUDID,
+					/Users/kavin/Pictures/design/UMFeedback_iOS_1.4,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

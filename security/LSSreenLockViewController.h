@@ -19,7 +19,7 @@ typedef enum {
 }	InfoStatus;
 
 
-@interface TestViewController : UIViewController
+@interface LSSreenLockViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
 @property (strong, nonatomic) IBOutlet SPLockScreen *lockScreenView;
 @property (nonatomic) InfoStatus infoLabelStatus;

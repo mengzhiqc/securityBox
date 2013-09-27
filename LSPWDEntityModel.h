@@ -15,4 +15,6 @@
 + (void)insertPwdInfo:(LSPWDEntity *)pwdEntity;
 + (NSArray *)passwdList;
 
++ (void)updatePasswdInfo;
++ (void)removePasswdInfo:(NSManagedObject *)passwdInfo;
 @end

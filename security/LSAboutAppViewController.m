@@ -36,6 +36,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:localHTMLPageFileURL];
     CGRect frame = self.view.bounds;
     frame.origin.y = 50;
+    frame.size.height -= 50;
     UIWebView *webView = [[UIWebView alloc]initWithFrame:frame];
     [webView loadRequest:request];
     [self.view addSubview:webView];

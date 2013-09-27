@@ -9,6 +9,7 @@
 #import "LSAddItemViewController.h"
 #import "LSPWDEntityModel.h"
 #import "LSPWDEntity.h"
+#import "LSImageUtil.h"
 
 @interface LSAddItemViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
@@ -64,6 +65,13 @@
 
 - (void)setup
 {
+    [self.addButton setBackgroundColor:[UIColor colorWithPatternImage:[LSImageUtil scaleImage:[UIImage imageNamed:@"security-addview-addbutton-background.png"] toScale:0.5]]];
+    [[self.addButton layer] setShadowOffset:CGSizeMake(2, 2)];
+    [[self.addButton layer] setShadowRadius:6];
+    [[self.addButton layer] setShadowOpacity:0.4];
+    [[self.addButton layer] setShadowColor:[UIColor blackColor].CGColor];
+    [self.addButton layer].cornerRadius = 5.0;
+    
     self.inputAreaOverLay = [[UIView alloc]initWithFrame:CGRectMake(35, 194, 250, 0)];
     //[self.inputAreaOverLay setBackgroundColor:[UIColor colorWithRed:58.0f/255 green:144.0f/255 blue:249.0f/255 alpha:0.75]];
     [self.inputAreaOverLay setClipsToBounds:YES];
@@ -81,9 +89,13 @@
     [submitButton setTag:1003];
     [submitButton addTarget:self action:@selector(submitButtonClicked) forControlEvents:UIControlEventTouchDown];
     [self.inputAreaOverLay addSubview:submitButton];
-
     
     [self.view addSubview:self.inputAreaOverLay];
+    
+    UIView *tipView = [[UIView alloc]initWithFrame:CGRectMake(5, self.view.frame.size.height-150, 122, 83)];
+    [tipView setBackgroundColor:[UIColor colorWithPatternImage:[LSImageUtil scaleImage:[UIImage imageNamed:@"swap-right.png"] toScale:0.5f]]];
+    [self.view addSubview:tipView];
+    
 }
 
 - (UITextField *)createCustomUiTextField:(int)index placeHolder:(NSString *)placeHolder selector:(SEL)selector tag:(int)tag
@@ -175,10 +187,10 @@
 {
     if (textField.tag == 1002||textField.tag == 1001) {
         CGRect frame = self.inputAreaOverLay.frame;
-        frame.origin.y -= 100;
+        frame.origin.y -= 120;
         [self.inputAreaOverLay setFrame:frame];
         CGRect labelFrame = self.welcomeTitle.frame;
-        labelFrame.origin.y -= 100;
+        labelFrame.origin.y -= 120;
         [self.welcomeTitle setFrame:labelFrame];
         
     }
@@ -189,11 +201,11 @@
     if (textField.tag == 1002||textField.tag == 1001) {
         [UIView animateWithDuration:0.25 animations:^{
         CGRect frame = self.inputAreaOverLay.frame;
-        frame.origin.y += 100;
+        frame.origin.y += 120;
         [self.inputAreaOverLay setFrame:frame];
             
         CGRect labelFrame = self.welcomeTitle.frame;
-        labelFrame.origin.y += 100;
+        labelFrame.origin.y += 120;
         [self.welcomeTitle setFrame:labelFrame];
         }];
     }

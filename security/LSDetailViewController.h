@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LSDetailViewController : UIViewController
-
+@property(nonatomic,strong) NSManagedObject *passwdInfoManagedObject;
 @end

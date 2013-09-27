@@ -61,7 +61,7 @@
 }
 
 - (void)setUpTheScreen{
-	CGFloat radius = 30.0;
+	CGFloat radius = 35.0;
 	CGFloat gap = (self.frame.size.width - 6 * radius )/4;
 	CGFloat topOffset = radius;
 	
@@ -109,7 +109,7 @@
 					self.selectedCell = cell;
 				}
 				
-				int row = view.tag/kTagIdentifier - kSeed;
+				int row = (int)view.tag/kTagIdentifier - kSeed;
 				int column = view.tag % kTagIdentifier - kSeed;
 				return row * 3 + column;
 			}
@@ -133,7 +133,7 @@
 
 - (NSNumber *) uniqueLineIdForLineJoiningPoint:(NSInteger)A AndPoint:(NSInteger)B
 {
-	return @(abs(A+B)*kAlterOne + abs(A-B)*kAlterTwo);
+	return @(abs((int)A+(int)B)*(int)kAlterOne + abs((int)A-(int)B)*kAlterTwo);
 }
 
 - (void)handlePanAtPoint:(CGPoint)point
@@ -175,7 +175,7 @@
 
 - (void)endPattern
 {
-	NSLog(@"PATTERN: %@",[self patternToUniqueId]);
+	//NSLog(@"PATTERN: %@",[self patternToUniqueId]);
 	if ([self.delegate respondsToSelector:@selector(lockScreen:didEndWithPattern:)])
 		[self.delegate lockScreen:self didEndWithPattern:[self patternToUniqueId]];
 	
@@ -186,7 +186,7 @@
 {
 	long finalNumber = 0;
 	long thisNum;
-	for(int i = self.cellsInOrder.count - 1 ; i >= 0 ; i--){
+	for(int i = (int)self.cellsInOrder.count - 1 ; i >= 0 ; i--){
 		thisNum = ([[self.cellsInOrder objectAtIndex:i] integerValue] + 1) * pow(10, (self.cellsInOrder.count - i - 1));
 		finalNumber = finalNumber + thisNum;
 	}

@@ -71,4 +71,23 @@
     
 }
 
++ (void)updatePasswdInfo
+{
+    NSManagedObjectContext *context = [[self delegate] managedObjectContext];
+    NSError *error;
+    if(![context save:&error]) {
+        NSLog(@"can't updatePasswdInfo successfully,info:%@",[error localizedDescription]);
+    }
+}
+
++ (void)removePasswdInfo:(NSManagedObject *)passwdInfo
+{
+    NSManagedObjectContext *context = [[self delegate] managedObjectContext];
+    [context deleteObject:passwdInfo];
+    NSError *error;
+    if(![context save:&error]) {
+        NSLog(@"can't remove passwdInfo successfully,info:%@",[error localizedDescription]);
+    }
+}
+
 @end

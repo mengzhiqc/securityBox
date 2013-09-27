@@ -41,6 +41,12 @@
     [self.enterButton addTarget:nil action:@selector(enterButtonClicked) forControlEvents:UIControlEventTouchDown];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -92,7 +98,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LSDetailViewController *detailController = [[LSDetailViewController alloc]initWithNibName:@"LSDetailViewController" bundle:Nil];
+    LSDetailViewController *detailController = [[LSDetailViewController alloc]initWithNibName:@"LSDetailViewController" bundle:nil];
+    NSInteger row = [indexPath row];
+    NSManagedObject *passwdInfoManagedObject = [self.dataSource objectAtIndex:row];
+    detailController.passwdInfoManagedObject = passwdInfoManagedObject;
     [self.navigationController pushViewController:detailController animated:YES];
 }
 
@@ -115,7 +124,6 @@
     UIView *tableViewBackgroundView = [[UIView alloc]initWithFrame:self.view.bounds];
     [tableViewBackgroundView setBackgroundColor: [UIColor colorWithPatternImage:[LSImageUtil scaleImage:[UIImage imageNamed:@"security-mainview-background.png"] toScale:0.5]]];
     [self.tableView setBackgroundView:tableViewBackgroundView];
-
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

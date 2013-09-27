@@ -11,9 +11,10 @@
 #import "LSMainViewController.h"
 #import "LSAddItemViewController.h"
 #import "LSAboutAppViewController.h"
-#import "TestViewController.h"
+#import "LSSreenLockViewController.h"
 #import "LSAppDelegate.h"
 #import "LSImageUtil.h"
+#import "UMFeedback.h"
 
 @interface LSLeftMenuViewController ()
 @property(nonatomic,strong) NSArray *dataSource;
@@ -48,8 +49,11 @@
     self.dataSource = @[
                    @{@"name":@"添加项目",@"route":@"LSAddItemViewController",@"detail":@"增加一个新的项目",@"image":@"security-leftview-compose-icon.png"},
                    @{@"name":@"列表",@"route":@"LSMainViewController",@"detail":@"获取你的密码列表",@"image":@"security-leftview-list-icon.png"},
-                   @{@"name":@"关于我们",@"route":@"LSAboutAppViewController",@"detail":@"我们的设计理念",@"image":@"security-leftview-about-icon.png"},
+                   //@{@"name":@"关于我们",@"route":@"LSAboutAppViewController",@"detail":@"我们的设计理念",@"image":@"security-leftview-about-icon.png"},
+                   @{@"name":@"用户反馈",@"route":@"feedback",@"detail":@"用户反馈",@"image":@""},
+                   @{@"name":@"关于我们",@"route":@"LSAboutAppViewController",@"detail":@"我们的设计理念",@"image":@""},
                    @{@"name":@"设置手势",@"route":@"settingPattern",@"detail":@"设置手势",@"image":@""},
+
                    ];
 }
 
@@ -115,6 +119,8 @@
         [self.revealController setFrontViewController:navigationRootController];
     } else if ([route isEqualToString:@"settingPattern"]) {
         [self applicationPatternSetting];
+    } else if([route isEqualToString:@"feedback"]) {
+        [UMFeedback showFeedback:self.revealController withAppkey:@"524258f056240b60c0059f76"];
     }
     
     [self.revealController showViewController:self.revealController.frontViewController animated:YES completion:nil];
@@ -145,7 +151,7 @@
 
 - (void)applicationPatternSetting
 {
-    TestViewController *lockViewController = [[TestViewController alloc]init];
+    LSSreenLockViewController *lockViewController = [[LSSreenLockViewController alloc]init];
     lockViewController.infoLabelStatus = InfoStatusFirstTimeSetting;
     [self.revealController presentViewController:lockViewController animated:YES completion:^{
     
