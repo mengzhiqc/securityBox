@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A568E8417F64373009FDCB4 /* LSPWDEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A568E8117F64373009FDCB4 /* LSPWDEntity.m */; };
+		8A568E8517F64373009FDCB4 /* LSPWDEntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A568E8317F64373009FDCB4 /* LSPWDEntityModel.m */; };
 		8A7FAFD717EFACFE00B8F772 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7FAFD617EFACFE00B8F772 /* Foundation.framework */; };
 		8A7FAFD917EFACFE00B8F772 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7FAFD817EFACFE00B8F772 /* CoreGraphics.framework */; };
 		8A7FAFDB17EFACFE00B8F772 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7FAFDA17EFACFE00B8F772 /* UIKit.framework */; };
@@ -35,8 +37,6 @@
 		8A9D716617EFF09A0019647F /* reveal_menu_icon_portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A9D716217EFF09A0019647F /* reveal_menu_icon_portrait@2x.png */; };
 		8A9D716A17F025F40019647F /* LSAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D716817F025F40019647F /* LSAddItemViewController.m */; };
 		8A9D716B17F025F40019647F /* LSAddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A9D716917F025F40019647F /* LSAddItemViewController.xib */; };
-		8A9D717517F063B90019647F /* LSPWDEntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D717417F063B90019647F /* LSPWDEntityModel.m */; };
-		8A9D717B17F07A0E0019647F /* LSPWDEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D717A17F07A0E0019647F /* LSPWDEntity.m */; };
 		8AF1175917F13C5E009AFB61 /* LSImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1175817F13C5E009AFB61 /* LSImageUtil.m */; };
 		8AF1175F17F148FC009AFB61 /* Security-leftview-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF1175E17F148FC009AFB61 /* Security-leftview-background.png */; };
 		8AF1177717F1ACBF009AFB61 /* security-leftview-list-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF1177517F1ACBF009AFB61 /* security-leftview-list-icon.png */; };
@@ -72,6 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A568E8017F64373009FDCB4 /* LSPWDEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPWDEntity.h; path = security/LSPWDEntity.h; sourceTree = "<group>"; };
+		8A568E8117F64373009FDCB4 /* LSPWDEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPWDEntity.m; path = security/LSPWDEntity.m; sourceTree = "<group>"; };
+		8A568E8217F64373009FDCB4 /* LSPWDEntityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LSPWDEntityModel.h; path = security/LSPWDEntityModel.h; sourceTree = "<group>"; };
+		8A568E8317F64373009FDCB4 /* LSPWDEntityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LSPWDEntityModel.m; path = security/LSPWDEntityModel.m; sourceTree = "<group>"; };
 		8A7FAFD317EFACFE00B8F772 /* security.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = security.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7FAFD617EFACFE00B8F772 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A7FAFD817EFACFE00B8F772 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,10 +113,6 @@
 		8A9D716717F025F40019647F /* LSAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSAddItemViewController.h; sourceTree = "<group>"; };
 		8A9D716817F025F40019647F /* LSAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSAddItemViewController.m; sourceTree = "<group>"; };
 		8A9D716917F025F40019647F /* LSAddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSAddItemViewController.xib; sourceTree = "<group>"; };
-		8A9D717317F063B90019647F /* LSPWDEntityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPWDEntityModel.h; sourceTree = "<group>"; };
-		8A9D717417F063B90019647F /* LSPWDEntityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPWDEntityModel.m; sourceTree = "<group>"; };
-		8A9D717917F07A0E0019647F /* LSPWDEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPWDEntity.h; sourceTree = "<group>"; };
-		8A9D717A17F07A0E0019647F /* LSPWDEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPWDEntity.m; sourceTree = "<group>"; };
 		8AF1175717F13C5E009AFB61 /* LSImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSImageUtil.h; sourceTree = "<group>"; };
 		8AF1175817F13C5E009AFB61 /* LSImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSImageUtil.m; sourceTree = "<group>"; };
 		8AF1175E17F148FC009AFB61 /* Security-leftview-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Security-leftview-background.png"; sourceTree = "<group>"; };
@@ -308,10 +308,10 @@
 		8A9D716C17F05B340019647F /* model */ = {
 			isa = PBXGroup;
 			children = (
-				8A9D717317F063B90019647F /* LSPWDEntityModel.h */,
-				8A9D717417F063B90019647F /* LSPWDEntityModel.m */,
-				8A9D717917F07A0E0019647F /* LSPWDEntity.h */,
-				8A9D717A17F07A0E0019647F /* LSPWDEntity.m */,
+				8A568E8017F64373009FDCB4 /* LSPWDEntity.h */,
+				8A568E8117F64373009FDCB4 /* LSPWDEntity.m */,
+				8A568E8217F64373009FDCB4 /* LSPWDEntityModel.h */,
+				8A568E8317F64373009FDCB4 /* LSPWDEntityModel.m */,
 			);
 			name = model;
 			path = ..;
@@ -474,12 +474,11 @@
 				8A7FB00E17EFB1C300B8F772 /* LSMainViewController.m in Sources */,
 				8A7FAFEC17EFACFE00B8F772 /* security.xcdatamodeld in Sources */,
 				8A9D715917EFE2E20019647F /* UIViewController+PKRevealController.m in Sources */,
+				8A568E8517F64373009FDCB4 /* LSPWDEntityModel.m in Sources */,
 				8A9D715D17EFE4160019647F /* LSLeftMenuViewController.m in Sources */,
 				8AF1175917F13C5E009AFB61 /* LSImageUtil.m in Sources */,
-				8A9D717517F063B90019647F /* LSPWDEntityModel.m in Sources */,
 				8AF1178117F1D9F0009AFB61 /* LSAboutAppViewController.m in Sources */,
 				8AF1179B17F277C5009AFB61 /* SPLockScreen.m in Sources */,
-				8A9D717B17F07A0E0019647F /* LSPWDEntity.m in Sources */,
 				8A7FAFE517EFACFE00B8F772 /* main.m in Sources */,
 				8AF1179817F277C5009AFB61 /* NormalCircle.m in Sources */,
 				8AF1179E17F2782A009AFB61 /* LSSreenLockViewController.m in Sources */,
@@ -490,6 +489,7 @@
 				8AF1179917F277C5009AFB61 /* SPLine.m in Sources */,
 				8AF1179A17F277C5009AFB61 /* SPLockOverlay.m in Sources */,
 				8A9D716A17F025F40019647F /* LSAddItemViewController.m in Sources */,
+				8A568E8417F64373009FDCB4 /* LSPWDEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
